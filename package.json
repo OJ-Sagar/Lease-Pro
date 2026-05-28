@@ -1,0 +1,30 @@
+{
+  "name": "lease-pro-admin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace server\" \"npm run dev --workspace client\"",
+    "build": "npm run build --workspace client",
+    "start": "npm run start --workspace server",
+    "lint": "npm run lint --workspace client && npm run lint --workspace server",
+    "supabase:start": "supabase start",
+    "supabase:stop": "supabase stop",
+    "supabase:reset": "supabase db reset",
+    "supabase:push": "supabase db push",
+    "supabase:apply": "node scripts/apply-supabase.mjs",
+    "supabase:apply:seed": "node scripts/apply-supabase.mjs --seed",
+    "supabase:seed:demo": "node scripts/seed-demo-data.mjs"
+  },
+  "dependencies": {
+    "pg": "^8.13.1",
+    "serverless-http": "^3.2.0"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
