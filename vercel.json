@@ -1,6 +1,12 @@
 {
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "outputDirectory": "client/dist"
+  "buildCommand": "npm install && npm run build",
+  "outputDirectory": "client/dist",
+  "functions": {
+    "api/[...handler].js": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  }
 }
+
 
